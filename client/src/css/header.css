@@ -1,0 +1,143 @@
+/* src/css/header.css */
+
+.main-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* תופס 100% רוחב */
+  width: 100%; 
+  /* פדינג פנימי כדי שהטקסט לא ייגע בקירות (למשל 5% מכל צד) */
+  padding: 1rem 5%; 
+  background-color: #ffffff;
+  border-bottom: 1px solid #eaeaea;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  /* מבטל את המרכוז הקודם אם היה */
+  margin: 0; 
+  box-sizing: border-box; /* מבטיח שהפדינג לא ירחיב את ה-100% */
+}
+
+.user-welcome {
+  font-size: 0.9rem;
+  letter-spacing: 0.05rem;
+  text-transform: uppercase;
+  color: #888;
+  font-weight: 400;
+  margin: 0;
+}
+
+.user-welcome span {
+  color: #111;
+  font-weight: 600;
+}
+
+.nav-menu {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.nav-link, .nav-link-btn {
+  text-decoration: none;
+  color: #666;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: color 0.2s ease;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem 0; /* נותן שטח לחיצה נוח */
+}
+
+.nav-link:hover, .nav-link-btn:hover {
+  color: #000;
+}
+
+/* סימון עמוד פעיל */
+.nav-link.active {
+  color: #000;
+  position: relative;
+}
+
+.nav-link.active::after {
+  content: '';
+  position: absolute;
+  bottom: -1.1rem; /* מתיישב בדיוק על הקו התחתון של ההידר */
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #000;
+}
+
+.logout-trigger {
+  color: #999;
+  font-size: 0.85rem;
+  border: 1px solid #eee;
+  padding: 0.4rem 0.8rem;
+  border-radius: 4px;
+  margin-left: 1rem;
+}
+
+.logout-trigger:hover {
+  background-color: #fafafa;
+  border-color: #ddd;
+  color: #000;
+}
+
+/* התאמה למובייל */
+@media (max-width: 768px) {
+  .main-header {
+    flex-direction: column;
+    padding: 1rem;
+    gap: 0.8rem;
+  }
+  
+  .nav-menu {
+    gap: 1rem;
+  }
+
+  .nav-link.active::after {
+    display: none; /* מסיר את הקו במובייל כדי שלא יתבלגן */
+  }
+}
+.logo {
+  cursor: pointer;
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-right: 2rem;
+}
+
+.nav-menu {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.user-welcome {
+  margin-right: 1rem;
+  white-space: nowrap;
+}
+/* גודל כותרת ראשית */
+.logo {
+  cursor: pointer;
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+
+/* טקסט ברכה למשתמש */
+.user-welcome {
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+/* לינקים וכפתורים */
+.nav-link,
+.nav-link-btn {
+  font-size: 1rem;
+}
+
+/* כפתור התנתקות מעט מודגש יותר */
+.logout-trigger {
+  font-size: 0.95rem;
+}
